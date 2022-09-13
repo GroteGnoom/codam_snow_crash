@@ -1,0 +1,16 @@
+So there's a flag00 user. 
+Its password is not empty.
+There's a few dotfiles in the level00 home, but not much else to look at.
+'find / ! -user root 2>/dev/null'
+there's folders owned by flagxx and group levelxx for level04 and level12
+flag00 has a lot of proc files of course
+files and folders are also owned by users messagebus, syslog, daemon, whoopsie, www-data, flag11, man, libuuid
+when catting /etc/password there's many more users
+!! flag01 has its password set there?
+in /usr/sbin there's file 'john' of flag00, openarenaserver of flag05
+john has encypted password in it
+there are of course online caesar cipher checkers:
+https://cryptii.com/pipes/caesar-cipher
+su flag00
+getflag
+

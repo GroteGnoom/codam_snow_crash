@@ -1,0 +1,15 @@
+In level0 we already saw something suspicious in /etc/passwd
+the password is hashed. If not indicated otherwise it's DES
+https://unix.stackexchange.com/questions/8229/what-methods-are-used-to-encrypt-passwords-in-etc-passwd-and-etc-shadow
+https://stackoverflow.com/questions/9119046/brute-forcing-des-with-a-weak-key
+with hashcat, DES does not show up in the manpage, but apparently it's -m 1500
+with 6.2.6 I get an illegal instruction
+with 6.2.5 I get clBuildProgram(): CL_BUILD_PROGRAM_FAILURE
+John the ripper also has these messed up errors:
+
+In file included from argon2_core_plug.c:32:
+                                   blake2.h:112:5: error: size of array element is not a multiple of its alignment
+                                     112 |     blake2b_state S[4][1];
+installed john-the-ripper via snap :(
+it did immediately give me the password
+
