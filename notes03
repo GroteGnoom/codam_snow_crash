@@ -1,0 +1,14 @@
+a binary
+it's owned by flag03
+-rwsr-sr-x 1 flag03  level03 8.5K Mar  5  2016 level03
+is that setUID?
+strings level03 gives me
+/usr/bin/env echo Exploit me
+And I can change my env
+I don't have permission to edit files in my home, but I can do it in /tmp
+if I put an echo there, I can run it by putting /tmp in front of my path
+(if I type 'echo' I don't see anything special, because the builtin is used)
+so now I can use ./level03 to run something as flag03, like getflag :)
+
+
+

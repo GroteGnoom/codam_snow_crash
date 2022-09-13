@@ -1,0 +1,9 @@
+scp username@hostname:path/to/remote/file.txt /path/to/local/destination
+scp -P 4242 level02@127.0.0.1:/home/user/level02/level02.pcap .
+https://serverfault.com/questions/38626/how-can-i-read-pcap-files-in-a-friendly-format
+it has silly permissions: ----r--r--
+tcpick -C -yP -r level02.pcap
+the password is sort of in there, but messed up?
+-yP shows non-printable characters as dots 
+tcpick -C -yX -r level02.pcap
+characters are typed, but then removed with DEL
