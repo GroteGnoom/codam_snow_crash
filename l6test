@@ -1,0 +1,3 @@
+line 1
+([x ${`getflag`}])
+line 3

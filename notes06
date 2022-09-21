@@ -1,1 +1,39 @@
 php!
+https://stackoverflow.com/questions/16986331/can-someone-explain-the-e-regex-modifier
+
+PHP Notice:  Undefined offset: 2 in /tmp/level06edit.php on line 24
+hallo
+hallo2
+contents: line 1
+([x (.*)])
+line 3
+
+y called with (.*)
+y 2: ( x *)
+y 3: ( x *)
+hallo3
+after replace: line 1
+(( x *))
+line 3
+
+line 1
+(( x *))
+line 3
+level06@SnowCrash:/tmp$ ./level06edit.php l6test bla
+hallo
+hallo2
+contents: line 1
+([x (.*)])
+line 3
+
+y called with (.*)
+y 2: ( x *)
+y 3: ( x *)
+hallo3
+after replace: line 1
+(( x *))
+line 3
+
+line 1
+(( x *))
+line 3
