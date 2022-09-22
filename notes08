@@ -1,0 +1,4 @@
+the level08 program explicitly dissalows to read from a file called 'token'
+if there's the string 'token' in there somewhere it dissalows it
+just make a symbolic link to it
+and then you have the password to flag08, not the password to the next level yet
