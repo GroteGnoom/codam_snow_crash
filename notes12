@@ -2,3 +2,21 @@
 perl!
 
 port 4646 this time
+
+We can't use spaces, and egrep hangs if you don't pass another command. But if you use |, you can run somethings else in parallel
+
+http://127.0.0.1:4747/?x=|getflag%3E/tmp/bla
+
+
+I'm surprized the caps were no problem? I thought I had to make symlinks
+ah, I'm using the wrong port and accidentally getting the password for level05
+
+oh no, it's quoted :S. That doesn't work at all! But $() does work
+
+How to run something when you only have caps?
+
+apparently you can do
+/*/ls
+and it works? If I press tab it expands to /bin/ls
+
+http://127.0.0.1:4646/?x=$(/*/RUN)
